@@ -18,7 +18,7 @@ Au cours de ce projet, j'ai appris à :
 Le projet consiste à Utiliser des algorithmes de segmentation (comme U-Net) pour identifier et isoler les parties des plantes (feuilles, tiges, etc.) et détecter d'éventuelles anomalies. Nous avons utilisé TensorFlow pour construire un modèle de segmentation d'images à l'aide du jeu de données **leaf_disease_segmentation_dataset** qui contient 588 images de feuilles de pommiers malades et 588 masques correspondants à ces feuilles. Le modèle utilise l'architecture U-Net. Après l’entrainement, le modèle a atteint une précision de 83.338% sur l'ensemble de test prévu, démontrant ainsi son efficacité dans la segmentation des différentes feuilles de pommiers. Nous avons continué notre parcours en développant un modèle de classification en utilisant le dataset **plantvillageapplecolor**. Notre modèle a atteint une précision de 100%
 
 ## Liens Utiles
-- **Notebook Colab :** [Lien vers le notebook](https://www.kaggle.com/code/charbelnoukon/notebookb9738a1d8c/edit/run/201647076](https://www.kaggle.com/code/charbelnoukon/notebookfa1f184e8a/edit))
+- **Notebook Colab :** [Lien vers le notebook](https://www.kaggle.com/code/charbelnoukon/notebookb9738a1d8c/edit/run/201647076](https://www.kaggle.com/code/charbelnoukon/notebookfa1f184e8a))
 
 
 
