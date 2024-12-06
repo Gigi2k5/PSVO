@@ -1,11 +1,11 @@
-import streamlit as st
+import gradio as gr
 import numpy as np
 import tensorflow as tf
 import cv2
 import joblib
 import os
-
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
 
 # Charger le modèle de segmentation
 segmentation_model = tf.keras.models.load_model('unet_optimized.keras', 
@@ -44,6 +44,8 @@ def segment_image(image):
 
     return mask_resized
 
+
+
 # Fonction de classification
 def classify_image(image):
     # Extraire les caractéristiques pour la classification
@@ -54,7 +56,7 @@ def classify_image(image):
     prediction = classification_model.predict([hist])
     return prediction[0]
 
-# Fonction principale pour Streamlit
+# Fonction principale pour Gradio
 def process_image(image):
     # Convertir l'image de PIL à NumPy
     image = np.array(image)
@@ -70,25 +72,22 @@ def process_image(image):
 
     return mask_colored, diagnosis
 
-# Interface Streamlit
-st.title("SafeLeaf")
-st.markdown("""
-    Cette application est une application de détection des maladies des feuilles de pommiers, elle utilise deux modèles :
-    1. Un modèle de segmentation pour détecter la zone de la feuille malade.
-    2. Un modèle de classification pour diagnostiquer la maladie de la feuille.
-    Chargez une image pour commencer.
-""")
+# Interface Gradio
+interface = gr.Interface(
+    fn=process_image,
+    inputs=gr.Image(label="Chargez une image de feuille", type="pil"),
+    outputs=[
+        gr.Image(label="Masque de segmentation"),
+        gr.Label(label="Diagnostic")
+    ],
+    title="SafeLeaf",
+    description=(
+        "Cette application est une application de détection des maladies des feuilles de pommiers, elle utilise deux modèles : "
+        "1. Un modèle de segmentation pour détecter la zone de la feuille malade. "
+        "2. Un modèle de classification pour diagnostiquer la maladie de la feuille. "
+        "Chargez une image pour commencer."
+    ),
+)
 
-# Téléchargement de l'image
-uploaded_file = st.file_uploader("Chargez une image de feuille", type=["jpg", "png", "jpeg"])
-
-if uploaded_file is not None:
-    # Convertir l'image téléchargée en format PIL
-    image = np.array(cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR))
-
-    # Processus d'image
-    mask_colored, diagnosis = process_image(image)
-
-    # Affichage des résultats
-    st.image(mask_colored, caption="Masque de segmentation", use_column_width=True)
-    st.write(f"Diagnostic : {diagnosis}")
+# Lancer l'application
+interface.launch()
