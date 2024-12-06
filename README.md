@@ -11,11 +11,11 @@ L'objectif principal de ce projet est de développer une application web permett
 Au cours de ce projet, j'ai appris à :
 - Prétraiter des données d'images pour améliorer la performance du modèle.
 - Organiser son code de manière à simplifier la lecture
-- Utiliser des architectures simple de machine Learning tels que Kmeans pour effectuer la classification, meme si les performance laisse à désirer
+- Utiliser des architectures simple de machine Learning tels que Mean Shift pour effectuer la classification, meme si les performance laisse à désirer
 
 ## Description du projet
 
-Le projet consiste à Utiliser des algorithmes de segmentation (comme U-Net) pour identifier et isoler les parties des plantes (feuilles, tiges, etc.) et détecter d'éventuelles anomalies. Nous avons utilisé TensorFlow pour construire un modèle de segmentation d'images à l'aide du jeu de données **leaf_disease_segmentation_dataset** qui contient 588 images de feuilles de pommiers malades et 588 masques correspondants à ces feuilles. Le modèle utilise l'architecture U-Net. Après l’entrainement, le modèle a atteint une précision de 82.68% sur l'ensemble de test prévu, démontrant ainsi son efficacité dans la segmentation des différentes feuilles de pommiers. Nous avons continué notre parcours en développant un modèle de classification en utilisant le dataset **plantvillageapplecolor** et l'algorithme **KMeans**. Notre modèle a atteint une précision de 65.75%.
+Le projet consiste à Utiliser des algorithmes de segmentation (comme U-Net) pour identifier et isoler les parties des plantes (feuilles, tiges, etc.) et détecter d'éventuelles anomalies. Nous avons utilisé TensorFlow pour construire un modèle de segmentation d'images à l'aide du jeu de données **leaf_disease_segmentation_dataset** qui contient 588 images de feuilles de pommiers malades et 588 masques correspondants à ces feuilles. Le modèle utilise l'architecture U-Net. Après l’entrainement, le modèle a atteint une précision de 82.68% sur l'ensemble de test prévu, démontrant ainsi son efficacité dans la segmentation des différentes feuilles de pommiers. Nous avons continué notre parcours en développant un modèle de classification en utilisant le dataset **plantvillageapplecolor** et l'algorithme **Mean Shift**. Notre modèle a atteint une précision de 65.75%.
 
 ## Liens Utiles
 - **vidéo de démonstration :** [Lien vers la vidéo](https://github.com/Gigi2k5/PSVO/blob/semaine7/essai_SafeLeaf.mp4)
